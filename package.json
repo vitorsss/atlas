@@ -1,0 +1,18 @@
+{
+    "name": "atlas",
+    "description": "Ferramenta para analise de logs",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "node --max-old-space-size=4096 app.js"
+    },
+    "dependencies": {
+        "angular-material": "",
+        "angular": "1.6.x",
+        "angular-animate": "1.6.x",
+        "angular-aria": "1.6.x",
+        "angular-sanitize": "1.6.x",
+        "ng-material-datetimepicker": "",
+        "express": "~3.2.4",
+        "socket.io": "~0.9.14"
+    }
+}

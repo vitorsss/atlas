@@ -1,0 +1,83 @@
+md-select {
+    width: 210px;
+}
+
+md-tabs-content-wrapper {
+    position: absolute;
+    top: 136px;
+    font-size: 13px;
+    border: 1px solid #e1e1e1;
+}
+
+md-tabs:not(.md-no-tab-content):not(.md-dynamic-height) {
+    min-height: initial;
+}
+md-tabs {
+    display: table-row;
+}
+
+md-tabs-canvas {
+    height: 26px;
+}
+
+md-tab-item md-icon {
+	outline: none;
+    border: none;
+    width: 17px;
+    min-width: 17px;
+}
+
+.md-tab {
+    font-size: 14px;
+    line-height: 24px;
+    padding: 0px 4px;
+}
+
+.tab-content {
+	white-space: pre;
+}
+
+.ç0 {background-color:#FF0000}
+.ç1 {background-color:#FFFF00}
+.ç2 {background-color:#00EAFF}
+.ç3 {background-color:#AA00FF}
+.ç4 {background-color:#FF7F00}
+.ç5 {background-color:#BFFF00}
+.ç6 {background-color:#0095FF}
+.ç7 {background-color:#FF00AA}
+.ç8 {background-color:#FFD400}
+.ç9 {background-color:#6AFF00}
+.ç10 {background-color:#0040FF}
+.ç11 {background-color:#EDB9B9}
+.ç12 {background-color:#B9D7ED}
+.ç13 {background-color:#E7E9B9}
+.ç14 {background-color:#DCB9ED}
+.ç15 {background-color:#B9EDE0}
+.ç16 {background-color:#8F2323}
+.ç17 {background-color:#23628F}
+.ç18 {background-color:#8F6A23}
+.ç19 {background-color:#6B238F}
+.ç20 {background-color:#4F8F23}
+.ç21 {background-color:#000000}
+.ç22 {background-color:#737373}
+.ç23 {background-color:#CCCCCC}
+
+
+/*help-bar*/
+.helpbar {
+	border-bottom: 1px solid #e1e1e1;
+	background: white;
+}
+
+md-tabs {
+	background: #f6f6f6;
+	border-bottom: 1px solid #e1e1e1;
+}
+
+md-tabs md-tabs-wrapper {
+  background: white;
+}
+
+md-tab-content {
+	background-color: white;
+}

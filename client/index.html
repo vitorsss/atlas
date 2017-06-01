@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" ng-app="atlas">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/angular-material/angular-material.css" rel="stylesheet">
+        <link href="/angular-material-datetimepicker/material-datetimepicker.min.css" rel="stylesheet">
+        <link href="app.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container" ng-controller="LogsController as logsCtrl" layout="column" flex>
+            <div>
+                <div layout-gt-sm="row" style="height: 60px">
+                    <md-input-container class="select">
+                        <label>App</label>
+                        <md-select ng-model="logsCtrl.selectedApps" multiple md-no-asterisk required name="selectedFiles">
+                            <md-optgroup label="apps">
+                                <md-option ng-value="app" opt="{{$index}}" ng-repeat="app in logsCtrl.apps | orderBy:'-'"><span data-ng-bind="app"></span></md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Data e Hora Inicial</label>
+                        <input mdc-datetime-picker required date="true" time="true" type="text" max-date="logsCtrl.dateTimeEnd" ng-model="logsCtrl.dateTimeStart"/>
+                    </md-input-container>
+                    <md-input-container class="md-block">
+                        <label>Data e Hora Final</label>
+                        <input mdc-datetime-picker required date="true" time="true" type="text" min-date="logsCtrl.dateTimeStart" ng-model="logsCtrl.dateTimeEnd"/>
+                    </md-input-container>
+                    <div flex>
+                        <md-chips ng-model="logsCtrl.expressions" readonly="false" md-removable="true" placeholder="Enter a tag" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Tag" required></md-chips>
+                    </div>
+                    <md-button class="md-raised md-primary" data-ng-click="logsCtrl.pesquisar()">Pesquisar</md-button>
+                </div>
+            </div>
+            <md-content ng-show="logsCtrl.tabs.length > 0">
+                <div flex layout="row" class="helpbar">
+                    <div flex>
+                        <md-chips ng-model="logsCtrl.tabs[logsCtrl.selectedTabIndex].highlights" readonly="false" placeholder="+ highlights" delete-button-label="Remove Tag" delete-hint="Press delete to remove tag" secondary-placeholder="+Tag" md-on-add="logsCtrl.tratarTab(logsCtrl.tabs[logsCtrl.selectedTabIndex])" md-on-remove="logsCtrl.tratarTab(logsCtrl.tabs[logsCtrl.selectedTabIndex])" apply-colors="true" required></md-chips>
+                    </div>
+                </div>
+            </md-content>
+            <md-tabs ng-show="logsCtrl.tabs.length > 0" md-selected="logsCtrl.selectedTabIndex">
+                <md-tab ng-repeat="tab in logsCtrl.tabs">
+                    <md-tab-label>
+                        {{tab.id}}
+                        <md-icon class="material-icons" ng-click="logsCtrl.removeTab(tab)">X</md-icon>
+                    </md-tab-label>
+                    <md-tab-body md-scroll-y layout="column" class="demo-tab tab{{$index%4}}" flex>
+                        <div class="tab-content" ng-bind-html="tab.content" resize></div>
+                    </md-tab-body>
+                </md-tab>
+            </md-tabs>
+        </div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="/moment/moment.js"></script>
+        <script src="/angular/angular.js"></script>
+        <script src="/angular-animate/angular-animate.js"></script>
+        <script src="/angular-sanitize/angular-sanitize.js"></script>
+        <script src="/angular-aria/angular-aria.js"></script>
+        <script src="/angular-material/angular-material.js"></script>
+        <script src="/angular-material-datetimepicker/angular-material-datetimepicker.min.js"></script>
+        <script src="logs.controller.js"></script>
+    </body>
+</html>
