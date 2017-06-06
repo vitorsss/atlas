@@ -52,7 +52,9 @@
             controller.tabs.forEach(function (tab) {
                 if (tab && line.tabIds.indexOf(tab.id) >= 0) {
                     tabIdsPreenchidos.push(tab.id);
-                    tab.lines.push(line.line);
+                    if (tab.lines.indexOf(line.line) < 0) {
+                        tab.lines.push(line.line);
+                    }
                 }
             });
             line.tabIds.forEach(function (tabId) {
